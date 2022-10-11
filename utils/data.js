@@ -72,6 +72,18 @@ const data = {
       countInStock: 20,
       description: "A popular pants",
     },
+    {
+      name: "How to get 'FREE'",
+      slug: "how to get free",
+      category: "Mask",
+      image: "/images/par7.jpg",
+      price: " + ???",
+      brand: "Police",
+      rating: 9,
+      numReviews: 14,
+      countInStock: 20,
+      description: "A perfect communication",
+    }
   ],
 };
 
