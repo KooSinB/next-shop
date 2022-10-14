@@ -1,6 +1,5 @@
- // eslint-disable-line no-unused-vars
+// eslint-disable-line no-unused-vars
 
-import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import Layout from '../components/Layout'
 
@@ -14,7 +13,7 @@ export default function LoginScreen() {
     const submitHandler = ({ email, password }) => {
         console.log(email, password)
     }
-        
+
     return (
     <Layout title="Login">
         <form className="mx-auto max-w-screen-md"
