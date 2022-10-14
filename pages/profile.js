@@ -1,11 +1,8 @@
 import Image from 'next/image'
-import { React, useContext } from "react";
-import { Store } from "../utils/Store";
+import React from "react";
 import Layout from "../components/Layout";
 
 export default function profile() {
-    const { state } = useContext(Store);
-    const { cart } = state;
     return(
         <Layout title="Profile - NextShop">
         <div>
@@ -14,6 +11,7 @@ export default function profile() {
             alt="WOW"
             width={300}
             height={300}></Image>
+            <br></br>
             <a className="text-lg font-bold">이름 : 지영욱</a>
             <br></br>
             <a className="text-lg font-bold">나이 : 24세</a>
