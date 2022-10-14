@@ -1,5 +1,4 @@
 import data from "../utils/data";
-import Head from "next/head";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
 
