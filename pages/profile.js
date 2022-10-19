@@ -1,17 +1,18 @@
 import Image from 'next/image'
 import React from "react";
 import Layout from "../components/Layout";
+import Profileimg from "../public/images/profileimg.jpg";
 
 export default function profile() {
     return(
         <Layout title="Profile - NextShop">
         <div>
             <Image
-            src="/profileimg.jpg"
+            src={Profileimg}
             alt="Wai-"
             width={300}
-            height={300}>
-            </Image>
+            height={300}
+            />
             <br></br>
             <a className="text-lg font-bold">이름 : 지영욱</a>
             <br></br>
