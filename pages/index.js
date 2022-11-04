@@ -1,7 +1,7 @@
-import data from "../utils/data";
-import Layout from "../components/Layout";
-import ProductItem from "../components/ProductItem";
-import { React } from "react";
+import data from '../utils/data'
+import Layout from '../components/Layout'
+import ProductItem from '../components/ProductItem'
+import { React } from 'react'
 
 export default function Home() {
   return (
@@ -12,5 +12,5 @@ export default function Home() {
         ))}
       </div>
     </Layout>
-  );
+  )
 }
