@@ -44,6 +44,9 @@ export default function LoginScreen() {
       const result = await signIn('github', {
         redirect: false,
       })
+      if (result.error) {
+        toast.error(result.error)
+      }
       console.log('Github login: ' + result)
     } catch (err) {
       toast.error(getError(err))
@@ -56,6 +59,9 @@ export default function LoginScreen() {
       const result = await signIn('google', {
         redirect: false,
       })
+      if (result.error) {
+        toast.error(result.error)
+      }
     } catch (err) {
       toast.error(getError(err))
     }
@@ -67,6 +73,9 @@ export default function LoginScreen() {
       const result = await signIn('kakao', {
         redirect: false,
       })
+      if (result.error) {
+        toast.error(result.error)
+      }
     } catch (err) {
       toast.error(getError(err))
     }
@@ -78,6 +87,9 @@ export default function LoginScreen() {
       const result = await signIn('naver', {
         redirect: false,
       })
+      if (result.error) {
+        toast.error(result.error)
+      }
     } catch (err) {
       toast.error(getError(err))
     }
