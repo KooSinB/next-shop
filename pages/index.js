@@ -2,7 +2,7 @@ import data from '../utils/data'
 import Layout from '../components/Layout'
 import ProductItem from '../components/ProductItem'
 import { React } from 'react'
-
+/* */
 export default function Home() {
   return (
     <Layout title="Home">
