@@ -11,7 +11,7 @@ export default function profile() {
         <br></br>
         <a className="text-lg font-bold">이름 : 지영욱</a>
         <br></br>
-        <a className="text-lg font-bold">나이 : 24세(99년생)</a>
+        <a className="text-lg font-bold">나이 : 24세</a>
         <br></br>
         <a className="text-lg font-bold">학교 : 중부대학교 고양캠퍼스</a>
         <br></br>
