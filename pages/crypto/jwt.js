@@ -1,34 +1,34 @@
-import React, { useState } from 'react'
-import Layout from '../../components/Layout'
-import jwt from 'jsonwebtoken'
-import Image from 'next/image'
-import jwtPic from '../../public/images/jwt.jpg'
-import axios from 'axios'
-import { useSession } from 'next-auth/react'
+import React, { useState } from 'react';
+import Layout from '../../components/Layout';
+import jwt from 'jsonwebtoken';
+import Image from 'next/image';
+import jwtPic from '../../public/jwt.jpg';
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
 
 export default function JwtScreen() {
-  const { data: session } = useSession()
-  const userEmail = session?.user.email
+  const { data: session } = useSession();
+  const userEmail = session?.user.email;
 
-  const [username, setUsername] = useState(userEmail)
-  const [token, setToken] = useState('')
-  const [decoded, setDecoded] = useState('')
-  const [result, setResult] = useState('')
+  const [username, setUsername] = useState(userEmail);
+  const [token, setToken] = useState('');
+  const [decoded, setDecoded] = useState('');
+  const [result, setResult] = useState('');
 
   const genJwt = async () => {
     await axios.post('/api/crypto/jwt', { username }).then((res) => {
-      setToken(res.data.token)
-      localStorage.setItem('jwt', res.data.token)
-      let decoded = jwt.decode(res.data.token)
-      setDecoded(JSON.stringify(decoded))
-    })
-  }
+      setToken(res.data.token);
+      localStorage.setItem('jwt', res.data.token);
+      let decoded = jwt.decode(res.data.token);
+      setDecoded(JSON.stringify(decoded));
+    });
+  };
 
   const verifyJwt = async () => {
     await axios.post('/api/crypto/jwt-v', { token }).then((res) => {
-      setResult(res.data.result)
-    })
-  }
+      setResult(res.data.result);
+    });
+  };
 
   return (
     <Layout title="JWT">
@@ -122,5 +122,5 @@ export default function JwtScreen() {
         </div>
       </form>
     </Layout>
-  )
+  );
 }

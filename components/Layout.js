@@ -4,10 +4,9 @@ import { React, useContext, useEffect, useState } from 'react'
 import { Store } from '../utils/Store'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useSession } from 'next-auth/react'
-import { signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { Menu } from '@headlessui/react'
-import DropdownLink from './dropdownlink'
+import DropdownLink from './DropdownLink'
 import Cookies from 'js-cookie'
 
 export default function Layout({ title, children }) {
@@ -18,7 +17,6 @@ export default function Layout({ title, children }) {
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0))
   }, [cart.cartItems])
-
   const logoutClickHandler = () => {
     Cookies.remove('cart')
     dispatch({ type: 'CART_RESET' })
@@ -45,7 +43,6 @@ export default function Layout({ title, children }) {
               <Link href="/crypto">
                 <a className="p-2">Crypto</a>
               </Link>
-
               <Link href="/profile">
                 <a className="p-2">Profile</a>
               </Link>
@@ -59,7 +56,6 @@ export default function Layout({ title, children }) {
                   )}
                 </a>
               </Link>
-
               {status === 'loading' ? (
                 'Loading'
               ) : session?.user ? (
@@ -67,7 +63,7 @@ export default function Layout({ title, children }) {
                   <Menu.Button className="text-blue-600">
                     {session.user.name}
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
+                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg ">
                     <Menu.Item>
                       <DropdownLink className="dropdown-link" href="/profile">
                         Profile

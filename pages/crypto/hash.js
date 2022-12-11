@@ -1,58 +1,58 @@
-import React, { useState } from 'react'
-import Layout from '../../components/Layout'
-import forge from 'node-forge'
-import Image from 'next/image'
-import hashPic from '../../public/images/hash.jpg'
-import axios from 'axios'
+import React, { useState } from 'react';
+import Layout from '../../components/Layout';
+import forge from 'node-forge';
+import Image from 'next/image';
+import hashPic from '../../public/hash.jpg';
+import axios from 'axios';
 
 export default function HashScreen() {
-  const algorithms = ['md5', 'sha1', 'sha256', 'sha384', 'sha512']
+  const algorithms = ['md5', 'sha1', 'sha256', 'sha384', 'sha512'];
 
-  const [algorithm, setAlgorithm] = useState('sha256')
-  const [inputText, setInputText] = useState('input your message')
-  const [hashValue1, setHashValue1] = useState('')
-  const [hashValue2, setHashValue2] = useState('')
+  const [algorithm, setAlgorithm] = useState('sha256');
+  const [inputText, setInputText] = useState('input your message');
+  const [hashValue1, setHashValue1] = useState('');
+  const [hashValue2, setHashValue2] = useState('');
 
   const submitHandler = async () => {
     await axios
       .post('/api/crypto/hash', { algorithm, inputText })
       .then((res) => {
-        setHashValue2(res.data.hashValue)
-      })
+        setHashValue2(res.data.hashValue);
+      });
 
     switch (algorithm) {
       case 'md5':
         // eslint-disable-next-line no-case-declarations
-        let md1 = forge.md.md5.create()
-        md1.update(inputText)
-        setHashValue1(md1.digest().toHex())
-        return
+        let md1 = forge.md.md5.create();
+        md1.update(inputText);
+        setHashValue1(md1.digest().toHex());
+        return;
       case 'sha1':
         // eslint-disable-next-line no-case-declarations
-        let md2 = forge.md.sha1.create()
-        md2.update(inputText)
-        setHashValue1(md2.digest().toHex())
-        return
+        let md2 = forge.md.sha1.create();
+        md2.update(inputText);
+        setHashValue1(md2.digest().toHex());
+        return;
       case 'sha256':
         // eslint-disable-next-line no-case-declarations
-        var md3 = forge.md.sha256.create()
-        md3.update(inputText)
-        setHashValue1(md3.digest().toHex())
-        return
+        var md3 = forge.md.sha256.create();
+        md3.update(inputText);
+        setHashValue1(md3.digest().toHex());
+        return;
       case 'sha384':
         // eslint-disable-next-line no-case-declarations
-        var md4 = forge.md.sha384.create()
-        md4.update(inputText)
-        setHashValue1(md4.digest().toHex())
-        return
+        var md4 = forge.md.sha384.create();
+        md4.update(inputText);
+        setHashValue1(md4.digest().toHex());
+        return;
       case 'sha512':
         // eslint-disable-next-line no-case-declarations
-        var md5 = forge.md.sha512.create()
-        md5.update(inputText)
-        setHashValue1(md5.digest().toHex())
-        return
+        var md5 = forge.md.sha512.create();
+        md5.update(inputText);
+        setHashValue1(md5.digest().toHex());
+        return;
     }
-  }
+  };
 
   return (
     <Layout title="Hash">
@@ -128,5 +128,5 @@ export default function HashScreen() {
         </div>
       </form>
     </Layout>
-  )
+  );
 }
