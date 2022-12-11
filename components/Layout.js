@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { signOut, useSession } from 'next-auth/react'
 import { Menu } from '@headlessui/react'
-import DropdownLink from './DropdownLink'
+import DropdownLink from '../components/DropdownLink'
 import Cookies from 'js-cookie'
 
 export default function Layout({ title, children }) {
