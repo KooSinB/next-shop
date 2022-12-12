@@ -18,8 +18,6 @@ export default function profile() {
         <a className="text-lg font-bold">전공 : 정보보호학과</a>
         <br></br>
         <a className="text-lg font-bold">학번 : 91813157</a>
-        <br></br>
-        <a className="text-lg font-bold">test</a>
       </div>
     </Layout>
   )
