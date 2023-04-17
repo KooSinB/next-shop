@@ -46,6 +46,7 @@ export default function LoginScreen() {
   }
 
   const githubLoginHandler = async () => {
+    // eslint-disable-line no-unused-vars.
     try {
       const result = await signIn('github', {
         redirect: false,
@@ -57,6 +58,7 @@ export default function LoginScreen() {
   }
 
   const googleLoginHandler = async () => {
+    // eslint-disable-line no-unused-vars.
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await signIn('google', {
@@ -68,6 +70,7 @@ export default function LoginScreen() {
   }
 
   const kakaoLoginHandler = async () => {
+    // eslint-disable-line no-unused-vars.
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await signIn('kakao', {
@@ -79,6 +82,7 @@ export default function LoginScreen() {
   }
 
   const naverLoginHandler = async () => {
+    // eslint-disable-line no-unused-vars.
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await signIn('naver', {
