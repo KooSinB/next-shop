@@ -45,46 +45,46 @@ export default function LoginScreen() {
     }
   }
 
-  // const githubLoginHandler = async () => {
-  //   try {
-  //     const result = await signIn('github', {
-  //       redirect: false,
-  //     })
-  //     console.log('Github login: ' + result)
-  //   } catch (err) {
-  //     toast.error(getError(err))
-  //   }
-  // }
+  const githubLoginHandler = async () => {
+    try {
+      const result = await signIn('github', {
+        redirect: false,
+      })
+      console.log('Github login: ' + result)
+    } catch (err) {
+      toast.error(getError(err))
+    }
+  }
 
-  // const googleLoginHandler = async () => {
-  //   try {
-  //     const result = await signIn('google', {
-  //       redirect: false,
-  //     })
-  //   } catch (err) {
-  //     toast.error(getError(err))
-  //   }
-  // }
+  const googleLoginHandler = async () => {
+    try {
+      const result = await signIn('google', {
+        redirect: false,
+      })
+    } catch (err) {
+      toast.error(getError(err))
+    }
+  }
 
-  // const kakaoLoginHandler = async () => {
-  //   try {
-  //     const result = await signIn('kakao', {
-  //       redirect: false,
-  //     })
-  //   } catch (err) {
-  //     toast.error(getError(err))
-  //   }
-  // }
+  const kakaoLoginHandler = async () => {
+    try {
+      const result = await signIn('kakao', {
+        redirect: false,
+      })
+    } catch (err) {
+      toast.error(getError(err))
+    }
+  }
 
-  // const naverLoginHandler = async () => {
-  //   try {
-  //     const result = await signIn('naver', {
-  //       redirect: false,
-  //     })
-  //   } catch (err) {
-  //     toast.error(getError(err))
-  //   }
-  // }
+  const naverLoginHandler = async () => {
+    try {
+      const result = await signIn('naver', {
+        redirect: false,
+      })
+    } catch (err) {
+      toast.error(getError(err))
+    }
+  }
 
   return (
     <Layout title="Login">
@@ -138,7 +138,7 @@ export default function LoginScreen() {
           Don&apos;t have an account? &nbsp;
           <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
         </div>
-        {/* <div className="p-5 bg-gray-500 rounded-lg">
+        <div className="p-5 bg-gray-500 rounded-lg">
           <div className="mb-4">
             <button
               className="primary-button w-full"
@@ -178,7 +178,7 @@ export default function LoginScreen() {
               Naver Login
             </button>
           </div>
-        </div> */}
+        </div>
       </form>
     </Layout>
   )
