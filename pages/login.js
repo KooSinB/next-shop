@@ -141,7 +141,7 @@ export default function LoginScreen() {
           Don&apos;t have an account? &nbsp;
           <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
         </div>
-        {/* <div className="p-5 bg-gray-500 rounded-lg">
+        <div className="p-5 bg-gray-500 rounded-lg">
           <div className="mb-4">
             <button
               className="primary-button w-full"
@@ -181,7 +181,7 @@ export default function LoginScreen() {
               Naver Login
             </button>
           </div>
-        </div> */}
+        </div>
       </form>
     </Layout>
   )
