@@ -1,29 +1,29 @@
-import React from 'react';
-import Link from 'next/link';
-import { signIn, useSession } from 'next-auth/react';
-import Layout from '../components/Layout';
-import { useForm } from 'react-hook-form';
-import { getError } from '../utils/error';
-import { toast } from 'react-toastify';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import axios from 'axios';
+import React from 'react'
+import Link from 'next/link'
+import { signIn, useSession } from 'next-auth/react'
+import Layout from '../components/Layout'
+import { useForm } from 'react-hook-form'
+import { getError } from '../utils/error'
+import { toast } from 'react-toastify'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import axios from 'axios'
 
 export default function LoginScreen() {
-  const { data: session } = useSession();
-  const router = useRouter();
-  const { redirect } = router.query;
+  const { data: session } = useSession()
+  const router = useRouter()
+  const { redirect } = router.query
   useEffect(() => {
     if (session?.user) {
-      router.push(redirect || '/');
+      router.push(redirect || '/')
     }
-  }, [router, session, redirect]);
+  }, [router, session, redirect])
 
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm()
 
   const submitHandler = async ({ email, password }) => {
     try {
@@ -31,63 +31,63 @@ export default function LoginScreen() {
         redirect: false,
         email,
         password,
-      });
+      })
       await axios
         .post('/api/auth/loginLog', { provider: 'credentials' })
         .then((res) => {
-          console.log(res.data.message);
-        });
+          console.log(res.data.message)
+        })
       if (result.error) {
-        toast.error(result.error);
+        toast.error(result.error)
       }
     } catch (err) {
-      toast.error(getError(err));
+      toast.error(getError(err))
     }
-  };
+  }
 
   const githubLoginHandler = async () => {
     try {
       const result = await signIn('github', {
         redirect: false,
-      });
-      console.log('Github login: ' + result);
+      })
+      console.log('Github login: ' + result)
     } catch (err) {
-      toast.error(getError(err));
+      toast.error(getError(err))
     }
-  };
+  }
 
   const googleLoginHandler = async () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await signIn('google', {
         redirect: false,
-      });
+      })
     } catch (err) {
-      toast.error(getError(err));
+      toast.error(getError(err))
     }
-  };
+  }
 
   const kakaoLoginHandler = async () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await signIn('kakao', {
         redirect: false,
-      });
+      })
     } catch (err) {
-      toast.error(getError(err));
+      toast.error(getError(err))
     }
-  };
+  }
 
   const naverLoginHandler = async () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await signIn('naver', {
         redirect: false,
-      });
+      })
     } catch (err) {
-      toast.error(getError(err));
+      toast.error(getError(err))
     }
-  };
+  }
 
   return (
     <Layout title="Login">
@@ -141,7 +141,7 @@ export default function LoginScreen() {
           Don&apos;t have an account? &nbsp;
           <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
         </div>
-        <div className="p-5 bg-gray-500 rounded-lg">
+        {/* <div className="p-5 bg-gray-500 rounded-lg">
           <div className="mb-4">
             <button
               className="primary-button w-full"
@@ -181,8 +181,8 @@ export default function LoginScreen() {
               Naver Login
             </button>
           </div>
-        </div>
+        </div> */}
       </form>
     </Layout>
-  );
+  )
 }
